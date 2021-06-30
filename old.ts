@@ -1,7 +1,8 @@
+/*
 //This is called a Union, the discountType can only contain the following 2 values:
 type discountType = "variable" | "fixed" | "none";
 
-class Discount {
+class DiscountOld {
     private _type: discountType;
     private _value: number;
 
@@ -47,9 +48,9 @@ class Discount {
 class Product {
     private _name : string;
     private _price : number;
-    private _discount : Discount;
+    private _discount : DiscountOld;
 
-    constructor(name: string, price: number, discount: Discount) {
+    constructor(name: string, price: number, discount: DiscountOld) {
         this._name = name;
         this._price = price;
         this._discount = discount;
@@ -59,7 +60,7 @@ class Product {
         return this._name;
     }
 
-    get discount(): Discount {
+    get discount(): DiscountOld {
         return this._discount;
     }
 
@@ -92,10 +93,10 @@ class shoppingBasket {
 }
 
 let cart = new shoppingBasket();
-cart.addProduct(new Product('Chair', 25, new Discount("fixed", 10)));
-//cart.addProduct(new Product('Chair', 25, new Discount("fixed", -10)));
-cart.addProduct(new Product('Table', 50, new Discount("variable", 25)));
-cart.addProduct(new Product('Bed', 100, new Discount("none")));
+cart.addProduct(new Product('Chair', 25, new DiscountOld("fixed", 10)));
+//cart.addProduct(new Product('Chair', 25, new DiscountOld("fixed", -10)));
+cart.addProduct(new Product('Table', 50, new DiscountOld("variable", 25)));
+cart.addProduct(new Product('Bed', 100, new DiscountOld("none")));
 
 const tableElement = document.querySelector('#cart tbody');
 cart.products.forEach((product) => {
@@ -118,4 +119,4 @@ cart.products.forEach((product) => {
     tr.appendChild(td);
 
     tableElement.appendChild(tr);
-});
+});*/
